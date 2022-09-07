@@ -1,0 +1,6 @@
+version: '3'
+services:
+  simple_model_deployment:
+    image: jupyter/base-notebook:latest
+    ports:
+      - 8890:8888 
