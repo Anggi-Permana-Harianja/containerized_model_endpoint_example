@@ -49,6 +49,13 @@ Docker basic commands
   $ sudo docker run --name simple_deployment_container base-notebook #example
   </p></pre>
   
+- Running a command in a running container (interactive and pseudo-tty)
+
+  <pre><p>
+  $ docker exec [options] [container_id or container_name] [command]
+  $ docker exec it simple_deployment_container /bin/bash
+  </p></pre>
+  
 - List containers (not the running containers)
 
   `$ docker ps`
