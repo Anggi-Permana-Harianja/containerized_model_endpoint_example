@@ -22,7 +22,7 @@ FastAPI basic commands
 Docker basic commands
 --------------------
 
-- installation
+- installation tutorial
   
   https://docs.docker.com/engine/install/
   
@@ -89,7 +89,7 @@ Docker basic commands
   
 - List images
 
-  `docker images -a`
+  `$ docker images -a`
   
 - Remove Image(s)
 
@@ -101,9 +101,15 @@ Docker basic commands
 Docker compose command
 --------
 
-- installation
+- Installation tutorial
 
   https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
+  
+- Running docker-compose with YAML file
+
+  https://docs.docker.com/engine/reference/commandline/compose_run/
+
+  `$ docker compose-compose -f [yaml_file] up`
   
 Docker common concepts
 -----------
