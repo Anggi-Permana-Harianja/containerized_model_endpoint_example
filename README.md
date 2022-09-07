@@ -55,7 +55,7 @@ Docker basic commands
 
   <pre><p>
   $ docker exec [options] [container_id or container_name] [command]
-  $ docker exec it simple_deployment_container /bin/bash
+  $ docker exec -it simple_deployment_container /bin/bash
   </p></pre>
   
 - List containers (not the running containers)
