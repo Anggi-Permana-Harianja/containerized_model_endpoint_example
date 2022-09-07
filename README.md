@@ -116,6 +116,25 @@ Docker build
 
 - Build our own Image that contains all our codes to be shipped.
 
+  <pre><p>
+  $ docker build -t [new_image_name:version] .
+  $ docker build -t my_image:1.0 .
+  </p></pre>
+  
+Docker build for FastAPI
+-----
+
+- There are some tricky to deploy FastAPI in docker container, please follow link below
+
+   https://fastapi.tiangolo.com/deployment/docker/#dockerfile
+   
+   Please be aware that to deploy FastAPI in docker container you need to follow
+   
+   - How Dockerfle written for FastAPI for `pip install requirement -r requirements.txt`
+   - How CMD is written in Dockerfile
+   - Host needs to use `0.0.0.0` and using port `80`
+   - When open in host browser, use http://localhost:port
+
   
 Docker common concepts
 -----------
@@ -153,7 +172,9 @@ Docker common concepts
   
 - Docker build
 
-  Blueprint of creating Docker Image. Using docker build we can build our own docker that contains our code, this is the next step of docker-compose that required before we can have a ready-to-use custom container Image. Dockerfile basically a collection of UNIX command that will be executed into the container and Dockerfile itself has no file format.
+  Blueprint of creating Docker Image. Using docker build we can build our own docker that contains our code. Dockerfile basically a collection of UNIX command that will be executed into the container and Dockerfile itself has no file format.
+  
+  The difference between docker-compose and docker build is docker-compose is pulling image from repo (so it doesnt have our code) while docker-build is building custom image (that contains our code). If we want to use our custom Image that has our code inside (that was build using docker-build) first we have to push our custom Image into hub and then we pull it using docker-compose. 
   
   <pre><p>
   FROM node #pull from Docker repository
