@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import uvicorn
 from pydantic import BaseModel
 from typing import *
 
@@ -76,4 +77,7 @@ def predict_list(iris: IrisList) -> List[int]:
     '''
     need to convert the result from a numpy array to native array
     '''
-    return {'prediction': prediction.tolist()}        
+    return {'prediction': prediction.tolist()}   
+
+if __name__ == '__main__':
+    uvicorn.run(app, host='127.0.0.1', port=8000)
