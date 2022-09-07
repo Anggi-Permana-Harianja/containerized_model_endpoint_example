@@ -5,16 +5,20 @@ from typing import *
 
 import joblib
 
+'''
+if we want to set the current working directory to ./
+then sys.path.append('.')
+'''
 import sys
-sys.path.append('..') #import module from ../src/
-from src.feat_eng import feat_eng_obj, feat_eng_list
+sys.path.append('..') 
+from src.feat_eng import feat_eng_obj, feat_eng_list #import from ../src/...
 
 app = FastAPI()
 
 '''
 load trained model
 '''
-model = joblib.load('../saved_models/ver1.sav')
+model = joblib.load('./saved_models/ver1.sav') #import from ./saved_models/...
 
 '''
 create class using BaseModel
@@ -78,6 +82,3 @@ def predict_list(iris: IrisList) -> List[int]:
     need to convert the result from a numpy array to native array
     '''
     return {'prediction': prediction.tolist()}   
-
-if __name__ == '__main__':
-    uvicorn.run(app, host='127.0.0.1', port=8000)
