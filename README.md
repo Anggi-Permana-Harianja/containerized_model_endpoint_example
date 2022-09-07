@@ -16,6 +16,8 @@ FastAPI basic commands
    if __name__ == '__main__':
             uvicorn.run(app, host='127.0.0.1', port=8000)
     </p></pre>
+    
+   and then run `python ./endpoint/main.py` instead using command `$ uvicorn main:app --reload`
    
 Docker basic commands
 --------------------
