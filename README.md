@@ -133,7 +133,8 @@ Docker build for FastAPI
    - How Dockerfle written for FastAPI for `pip install requirement -r requirements.txt`
    - How CMD is written in Dockerfile
    - Host needs to use `0.0.0.0` and using port `80`
-   - When open in host browser, use http://localhost:port
+   - Run the container using command `$ sudo docker run -d --name [container_name] -p[host_port]:[container_port] [image_name:version]`
+   - When open in host browser, use http://localhost:host_port
 
   
 Docker common concepts
