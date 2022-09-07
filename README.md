@@ -111,6 +111,12 @@ Docker compose command
 
   `$ docker compose-compose -f [yaml_file] up`
   
+Docker build
+-------
+
+- Build our own Image that contains all our codes to be shipped.
+
+  
 Docker common concepts
 -----------
 
@@ -143,4 +149,17 @@ Docker common concepts
           environments:
            - ME_CONFIG_MONGODB_ADMINUSERNAME=admin #see the docker repository for mongo-express to see environment for this Image
            - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+  </p></pre>
+  
+- Docker build
+
+  Blueprint of creating Docker Image. Using docker build we can build our own docker that contains our code, this is the next step of docker-compose that required before we can have a ready-to-use custom container Image. Dockerfile basically a collection of UNIX command that will be executed into the container and Dockerfile itself has no file format.
+  
+  <pre><p>
+  FROM node #pull from Docker repository
+  ENV MONGO_DB_USERNAME=admin \
+      MONGO_DB_PASSWORD=password
+  RUN mkdir -p /home/app #will be executed in the container
+  COPY . /home/app #copy everything in current directory [host] into /home/app directory [container]
+  CMD ["node", "server.js"] #equals to command $ node server.js which is JS file that copied from previous step
   </p></pre>
