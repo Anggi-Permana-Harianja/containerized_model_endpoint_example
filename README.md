@@ -28,23 +28,54 @@ Docker basic commands
 
   `$ docker pull jupyter/base-notebook:latest`
   
-- Running a command in a new container (with iteractive that takes inside the container) and also detach it
+- Rename Image
 
   <pre><p>
-  $ docker run --new_container_name test -itd image_name
-  $ docker run --simple_deploy_container -itd base_notebook #example
+  $ sudo docker tag [image ID] [new image name]
+  $ docker run tag 6b5af5e76c4d base-notebook #example
   </p></pre>
   
+- Running a new container from Image in detach mode
+
+  <pre><p>
+  $ docker run -d [image_name]
+  $ sudo docker run -d base-notebook:latest #example
+  </p></pre>
+  
+- Rename container
+
+  <pre><p>
+  $ docker run --name [new_container_name] [image_name]
+  $ sudo docker run --name simple_deployment_container base-notebook #example
+  </p></pre>
   
 - List containers (not the running containers)
 
   `$ docker ps`
   
-- Delete all containers installed
+- Stop running container
+
+  `$ docker stop [container_id]`
+  
+- Kill running container
 
   <pre><p>
-  $ sudo docker kill $(sudo docker ps -q)
-  $ sudo docker rm $(sudo docker ps -a -q)
+  $ docker kill [container_id] #one container
+  $ sudo docker rm $(sudo docker ps -a -q) #kill all containers
+  </p></pre>
+  
+- Delete all container(s) installed
+
+  <pre><p>
+  $ docker rm [container_id] #delete one container
+  $ sudo docker rm $(sudo docker ps -a -q) #delete all containers
+  </p></pre>
+  
+- Binding port
+
+  <pre><p>
+  $ docker run -p[host_port]:[container_port] [image_name]
+  $ docker run -p8890:8888 base-notebook
   </p></pre>
   
 - List images
@@ -57,13 +88,6 @@ Docker basic commands
   $ docker rmi [image name] #deleting one Image
   $ sudo docker rmi $(sudo docker images -a -q) #deleting all Images
   </p></pre>
- 
-- Rename Image
-
-  <pre><p>
-  $ sudo docker tag [image ID] [new image name]
-  $ docker run tag 6b5af5e76c4d base-notebook #example
-  </p></pre>
   
 Docker common concepts
 -----------
@@ -71,3 +95,7 @@ Docker common concepts
 - Container vs. Image
 
   Container: is a running environment for Image
+  
+- Container port vs. Host port
+
+  We can bind port between container and host to prevent mis-allocation of port, for example we can bind port 8000 from container with port 8001 from host so that we can open jupyter-notebook container in host machine using port 8001 instead 8000
