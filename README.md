@@ -1,6 +1,16 @@
 # Containerized simple ML model using FastAPI, Docker
 Containerized simple ML model using FastAPI, Docker so could easily deployed
 
+Usage
+-----
+
+<pre><p>
+$ sudo docker build -t my_image:1.0 .
+$ sudo docker run -d -p81:80 --name my_container my_image:1.0
+</p></pre>
+
+Then open http://localhost:81
+
 FastAPI basic commands
 -----
 
