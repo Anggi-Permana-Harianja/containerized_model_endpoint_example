@@ -26,8 +26,23 @@ $ sudo docker stop my_container
 </p></pre>
 
 To remove the Image
+
 <pre><p>
 $ sudo docker image rm my_image:1.0
+</p></pre>
+
+To export the Image as .tar file
+
+<pre><p>
+$ docker save -o [destination_directory]/[new_filename.tar] [image_name]
+$ sudo docker save -o ./exported_image.tar my_image:1.0 #example
+</p></pre>
+
+To load Image in tar file (that has been exported)
+
+<pre><p>
+$ docker load -i [image_file_directory]
+$ sudo docker load -i ./exported_image.tar #example
 </p></pre>
 
 FastAPI basic commands
