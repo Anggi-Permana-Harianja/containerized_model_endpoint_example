@@ -4,12 +4,31 @@ Containerized simple ML model using FastAPI, Docker so could easily deployed
 Usage
 -----
 
+To build the custom Docker Image
+
 <pre><p>
 $ sudo docker build -t my_image:1.0 .
 $ sudo docker run -d -p81:80 --name my_container my_image:1.0
 </p></pre>
 
 Then open http://localhost:81
+
+To turn the service off
+
+<pre><p>
+$ sudo docker stop my_container
+</p></pre>
+
+To remove the container
+
+<pre><p>
+$ sudo docker stop my_container
+</p></pre>
+
+To remove the Image
+<pre><p>
+$ sudo docker image rm my_image:1.0
+</p></pre>
 
 FastAPI basic commands
 -----
